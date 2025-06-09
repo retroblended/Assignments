@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <head>
+        <body>
+            <!--The html layout-->
+            <table> <!--To separate numbers and signs into blocks (actual cal.)
+                                To remove when styling.-->
+                <tr>
+                    <td colspan="4"> <!--Number of spaces a block will take relative to column block. col^row>-->
+                        <input type="text" id="inputBox" value="0" readonly>
+                        <!--Display area. input type="text" automat. creates box.-->
+                        <!--The id is so that Java can display it to something.-->
+                    </td>
+                </tr>
+                <tr> <!--ROW>>>-->
+                    <td class="digi" onclick="userPrsBtn(7)">7</td> <!--COLUMN^^^-->
+                    <td class="digi" onclick="userPrsBtn(8)">8</td>
+                    <td class="digi" onclick="userPrsBtn(9)">9</td>
+                    <td class="oper"  onclick="opPrsd('*')">x</td>
+                </tr>
+                <tr>
+                    <td class="digi" onclick="userPrsBtn(4)">4</td>
+                    <!--We can call this function by using the onclick since the user is going to use it.-->
+                    <td class="digi" onclick="userPrsBtn(5)">5</td>
+                    <td class="digi" onclick="userPrsBtn(6)">6</td>
+                    <td class="oper" onclick="opPrsd('-')">-</td>
+                </tr>
+                <tr>
+                    <td class="digi" onclick="userPrsBtn(1)">1</td>
+                    <td class="digi" onclick="userPrsBtn(2)">2</td>
+                    <td class="digi" onclick="userPrsBtn(3)">3</td>
+                    <td class="oper" onclick="opPrsd('+')">+</td>
+                </tr>
+                <tr>
+                    <td class="digi" colspan="2" onclick="userPrsBtn(0)">0</td>
+                    <td class="clear" onclick="trnOnAc(0)">AC</td>
+                    <td class="oper" onclick="opPrsd('/')">/</td>
+                </tr>
+                <tr>
+                    <td class="oper" colspan="4" onclick="equalTot('=')">=</td>
+                </tr>
+            </table>
+            <!--Code to create basic calculator in html-- no CSS, no Java yet...-->
+
+
+
+            <!--Event Handler-->
+            <!--JavaScript-- starting off with the numbers 0 - 9-->
+            <script>
+                var removeZ= true;
+
+                function userPrsBtn(button){
+
+                    if(removeZ == true){ //Boolean variable. Determines if the next thing the user types should be on a new line.
+                        document.getElementById("inputBox").value = button; /*You are setting that value by replacing it*/
+                        removeZ = false; //allows user to input more than one digit.
+
+                    } /*I did this without having an else and it displayed the zero with 1-9 I chose.*/
+                /*It seems confusing-- like how the hell do you know what to do here or what is going on?
+                        There is a step by step process, you build and improve upon the code*/
+
+                    else{
+                    var keepVal = document.getElementById("inputBox").value;
+                    document.getElementById("inputBox").value = keepVal + button;
+                    /*This is all well and good, but we need to call this function for it to be useful.*/
+                    }
+                }
+
+
+
+                /*AC button event handler*/
+                function trnOnAc(){
+                    document.getElementById("inputBox").value = 0;
+                    removeZ = true;
+                }
+
+
+
+                //Operator Button event handlers
+                //1 of 3 things must happen
+                //1. store on-screen value 1 (10+)
+                //2. remember the operator (+ -)
+                //3. clear screen when next digit typed (+5)
+//10 is stored into a variable (var value1) // + is stored in a variable called operator //removeZ = true (newline)
+                var value1;
+                var operatorUsed;
+
+                function opPrsd(operator){
+                    operatorUsed= operator;
+                    value1= parseInt(document.getElementById("inputBox").value);
+                    //It's going to store that number in text. How do we fix it? 
+                    removeZ = true; //Newline
+                }
+//Thought it would be more complicated. Does Java know what to do with the signs?
+//Test it with X instead of *
+
+
+                //Equal = Button event handler
+                function equalTot(equal){
+                    var value2= parseInt(document.getElementById("inputBox").value);
+                    var finalVal;
+
+                    switch(operatorUsed){
+                        case '+':
+                        finalVal= value1 + value2;
+                        break;
+                        case '-':finalVal= value1 - value2;
+                        break;
+                        case '/':finalVal= value1 / value2; break;
+                        case '*':finalVal= value1 * value2; break;
+                    }
+                    document.getElementById("inputBox").value= finalVal;
+                    //This is not needed but the PRO says so. So what's the AC button for?
+                    value1= 0;
+                    removeZ= true;
+                }
+            </script>
+        </body>
+    </head>
+</html>

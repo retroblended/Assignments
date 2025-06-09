@@ -1,198 +1,35 @@
-body{
-    padding:0; /*this utilizes the safe area of the page. It creates space between elements.*/
-    margin:0; /*that shit on a lined school books. 0=no margin. Think of it as the safe area.*/
-    font-family:Arial, Helvetica, sans-serif;
-}
-/*====== Entire Page ======*/
-
-#header{
-    position: fixed; /* sticky menu*/
-    top:0;
-    left:0;
-    z-index: 500;
-    width:100%;
-    height:80px;
-    background-image: url(images/wood-bg.png);
-    background-repeat: repeat-x;
-}
-#header img{
-    display: block;
-    margin: auto;
-    height:70px;
-    padding:5px;
-}
-/*====== Sticky Logo (Pine City Zoo) ======*/
-
-#tabs-top{
-    position: fixed;
-    top:80px;
-    left:0px;
-    z-index: 500;
-    width:100%;
-    height:40px;
-    background-color: darkgreen;
-}
-#tabs-top a{
-    float:left;
-    display:block;
-    width:33%;
-    height:35px;
-    font-weight: 700;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    text-decoration: none;
-    padding-top: 12px;
-}
-/*====== Top Menu Bar ======*/
-
-#main-page{
-    margin-top: 120px;
-    margin-bottom: 35px;
-}
-/*====== Center of Page / Map Section ======*/
-
-#tabs-bottom{
-    position: fixed;
-    bottom:0px;
-    left:0px;
-    z-index: 500;
-    width:100%;
-    height:40px;
-    background-color: forestgreen;
-}
-#tabs-bottom a{
-    float:left;
-    display:block;
-    width:50%;
-    height:35px;
-    font-weight: 700;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    text-decoration: none;
-    padding-top:12px;
-}
-/*====== Bottom Menu Bar ======*/
-
-#main{
-    margin:120px;
-    background-image: url(images/map-blur.png);
-    width:100%;
-    margin-left: auto; /*The background image wasn't at full scale and wasn't scaling with the window size
-                        It looked as if it tied itself with the info-box section. I had to create this code
-                        that took me about 30 minutes to figure out because the teacher is a cunt who tells
-                        you what to do instead of teaching you. There is a big difference between what he
-                        does and what's on your screen. The whole thing just feels lazy. Anyway the issue
-                        is solved.*/
-    background-repeat: repeat-y;
-    margin-bottom: auto; /*The map blur did not cover the whole #main, this fixed it.*/
-    background-size: 100%; /*on adifferent screen ie. the laptop I'm working on the image again doesn't scale
-                            through soem research this property fixed it on all pages. Now I know.
-                            Surprisingly the rest of the code is still needed... hmm.*/
-}
-
-#content{
-    padding-top: 1px;
-    padding-bottom: 50px;
-}
-
-a.info-box{
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, .8);
-    width:90%;
-    height:90px;
-    display: block;
-    margin:auto;
-    margin-top: 12px;
-    padding:1px;
-}
-
-.info-box img{
-    height:70px;
-    margin:10px;
-    float:left;
-}
-.info-box h3{
-    padding: 0px;
-    margin-bottom:0px;
-    width:90%;
-    color:#572800;
-}
-.info-box p{
-    margin:0px;
-    padding:0px;
-    width:90%;
-    color:#131313;
-}
-.info-box img.right{
-    float:right;
-    margin-top: 25px;
-    height:40px;
-}
-
-#info-box-full{
-    background-color: rgba(255, 255, 255, .8);
-    width: 90%;
-    display: block;
-    margin:auto;
-    margin-top: 12px;
-    padding:10px;
-}
-
-#info-box-full img{
-    width: 100%;   
-}
-#info-box-full h1{
-    text-align: center;
-}
-
-img.info-box-weather-icon{
-    height:30px;
-    margin:10px;
-    width:30px !important;
-    float:left;
-}
-h1.info-box-weather-icon{
-    text-align: center;
-    font-size: 65px;
-    font-weight: 300;
-    padding: 0;
-    margin:0;
-}
 table{
-    width:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-collapse: collapse; /*removes the border... from sight.*/
+    text-align: center;
+}
+tr{
+    height: 16vh; /*vertical height*/
+    background-color: #2b2e2a;
 }
 td{
-    border: 1px solid #131313;
-}
-#info-box-full h3{
-    text-align: center;
-    font-size: 40px;
+    width: 25vw; /*vertical width*/
+    border: 1px solid #2b2e2a;
 }
 
-input{
-    width:99.5%;
-    height:25px;
-    margin:10px 0;
-    border: 1px solid #939393;
-    margin-right: auto;
+#inputBox{
+    background-color: #2b2e2a;
+    font-size:70px;
+    color:#fff;
+    border:0;
+    width:99%;
+    text-align: left;
 }
-textarea{
-    width:50.5%;
-    height:100px;
-    margin:10px 0;
-    border: 1px solid #939393;
+.digi{
+    background-color: #4e5a2b;
+    color: #fff;
 }
-.button{
-    display:block;
-    background-color: forestgreen;
-    text-decoration: none;
-    text-align: center;
-    color:#ffffff;
-    font-size: 16px;
-    font-weight:600;
-    margin:12px;
-    padding:12px 0;
+.oper{
+    background-color: #ac7222;
+    color:#fff;
 }
-ul{
-    list-style-type: square;
+.clear{
+    background-color: #2b2e2a;
+    color:#fff;
 }
